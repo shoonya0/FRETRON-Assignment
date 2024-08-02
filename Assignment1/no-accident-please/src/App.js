@@ -1,9 +1,14 @@
 import React, { useState } from 'react';
 import Graph from './grid/graph';
-import collisionControl from './collisionControl/collisionControl';
+// import collisionControl from './collisionControl/collisionControl';
 
 function App() {
-  const [data, setData] = useState({ flight1: [], flight2: [], flight3: [] });
+
+  const [data, setData] = useState({
+    flight1: [{ x: parseFloat(1), y: parseFloat(1) }],
+    flight2: [{ x: parseFloat(1), y: parseFloat(1) }],
+    flight3: [{ x: parseFloat(1), y: parseFloat(1) }]
+  });
   const [x, setX] = useState('');
   const [y, setY] = useState('');
   const [flight, setFlight] = useState('flight1');
@@ -18,8 +23,8 @@ function App() {
 
   const handleSubmit = (event) => {
     event.preventDefault();
-    const dataAfterCollisionControl = collisionControl(data);
-    setFinalData(dataAfterCollisionControl);
+    // const dataAfterCollisionControl = collisionControl(data);
+    setFinalData(data);
   };
 
   return (
@@ -37,11 +42,11 @@ function App() {
         <label>
           <br />
           X:
-          <input type="number" value={x} onChange={(e) => setX(e.target.value)} required />
+          <input type="number" value={x} onChange={(e) => setX(e.target.value)} />
         </label>
         <label>
           Y:
-          <input type="number" value={y} onChange={(e) => setY(e.target.value)} required />
+          <input type="number" value={y} onChange={(e) => setY(e.target.value)} />
         </label>
         <button type="button" onClick={handleAddPoint}>Add Point</button>
         <button type="submit">Submit</button>

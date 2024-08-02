@@ -14,8 +14,13 @@ function Graph({ data }) {
       <Tooltip cursor={{ strokeDasharray: '3 3' }} />
       <Legend />
       {Object.keys(data).map((flight, index) => (
-        <Line key={flight} type="monotone" dataKey="y" data={data[flight]}
-          stroke={index === 0 ? "#8884d8" : index === 1 ? "#82ca9d" : "#ff7300"}
+        <Line
+          key={flight}
+          type="monotone"
+          dataKey="y"
+          data={data[flight]}
+          stroke={index === 0 ? "#00008B" : index === 1 ? "#006400" : "#8B0000"}
+          strokeWidth={1.5}
           dot={{ r: 5 }}
           name={`Flight ${flight}`}
         />
